@@ -6,7 +6,11 @@ window.Components.header = `
         <img src="brasao.png" alt="Brasão do Colégio Pleroma" class="logo-shield-img">
       </a>
 
-      <nav>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation" onclick="toggleMobileNavigation(this)">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="main-navigation" class="main-navigation">
         <ul class="nav-menu">
           <li><a href="/home" class="nav-link active" onclick="navigateTo('home'); return false;" id="nav-home">Início</a></li>
           <li><a href="/sobre" class="nav-link" onclick="navigateTo('sobre'); return false;" id="nav-sobre">Sobre</a></li>
@@ -19,7 +23,7 @@ window.Components.header = `
               <li><a href="/formacao/educacao-bilingue" onclick="navigateTo('proposta', 'bilingue'); return false;">Educação Bilíngue</a></li>
             </ul>
           </li>
-          <li><a href="/admissao" class="nav-link" onclick="navigateTo('admissao'); return false;" id="nav-admissao">Admissão</a></li>
+          <li><a href="/admissao" class="nav-link" onclick="navigateTo('admissao'); return false;" id="nav-admissao">Matrículas</a></li>
           <li><a href="/vagas" class="nav-link" onclick="navigateTo('faca-parte'); return false;" id="nav-faca-parte">Vagas</a></li>
           <li><a href="/contato" class="nav-link" onclick="navigateTo('contato'); return false;" id="nav-contato">Contato</a></li>
         </ul>

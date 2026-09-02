@@ -16,11 +16,12 @@ window.Modules.contato = `
           <div>
             <span class="eyebrow-label">Atendimento Institucional</span>
             <h2 class="display-h2">Estaremos felizes em receber sua família</h2>
+            <p style="font-weight: 600; color: var(--color-burgundy-deep)">Agende sua visita pelo WhatsApp.</p>
 
             <div style="margin-top: var(--space-5);">
               <h4 style="color: var(--color-burgundy-deep); margin-bottom: 4px;">Endereço da Sede</h4>
               <p>Rua Antônio Lagrota, 125 — Mariano Procópio</p>
-              <p>Juiz de Fora - MG | CEP 36035-130</p>
+              <p>Juiz de Fora - MG | CEP 36035-020</p>
 
               <h4 style="color: var(--color-burgundy-deep); margin-top: var(--space-4); margin-bottom: 4px;">WhatsApp
                 Oficial</h4>

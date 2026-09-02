@@ -14,6 +14,7 @@ function normalizePath(pathname) { return (pathname.replace(/\/+$/, '') || '/').
 function resolveRoute(pathname) { return routes[normalizePath(pathname)] || routes['/']; }
 
 function renderRoute(route, shouldScroll) {
+  if (typeof updateSeoForPath === 'function') updateSeoForPath(window.location.pathname);
   document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
   const targetSection = document.getElementById('page-' + route.page);

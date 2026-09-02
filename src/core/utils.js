@@ -104,12 +104,12 @@ function toggleDiffAccordion(trigger) {
     const visualImg = wrapper.querySelector('.diff-accordion-visual img');
     const newSrc = item.getAttribute('data-image');
     if (visualImg && newSrc && visualImg.getAttribute('src') !== newSrc) {
-      visualImg.style.opacity = 0;
-      setTimeout(() => {
-        visualImg.src = newSrc;
-        visualImg.style.opacity = 1;
-      }, 200);
+      // A troca precisa ser direta: esconder a imagem antes de carregar a
+      // próxima deixava o container vazio em acessos sem cache.
+      visualImg.src = newSrc;
     }
+
+    syncMobileAccordionImages(wrapper, item, newSrc);
   }
 }
 
@@ -122,8 +122,45 @@ function initializeDiffAccordionVisuals() {
     const imageSrc = activeItem && activeItem.getAttribute('data-image');
 
     if (visualImg && imageSrc) visualImg.src = imageSrc;
+    if (activeItem && imageSrc) syncMobileAccordionImages(wrapper, activeItem, imageSrc);
   });
 }
+
+// Em telas pequenas, a foto acompanha o item aberto e surge antes do conteúdo.
+function syncMobileAccordionImages(wrapper, activeItem, imageSrc) {
+  if (!wrapper || !activeItem || !imageSrc) return;
+
+  wrapper.querySelectorAll('.diff-accordion-mobile-visual').forEach(visual => visual.remove());
+  const visual = document.createElement('div');
+  visual.className = 'diff-accordion-mobile-visual';
+  const image = document.createElement('img');
+  image.src = imageSrc;
+  image.alt = activeItem.querySelector('.diff-accordion-trigger')?.textContent.trim() || 'Atividade do Colégio Pleroma';
+  image.loading = 'lazy';
+  visual.appendChild(image);
+  activeItem.insertBefore(visual, activeItem.firstChild);
+}
+
+function toggleMobileNavigation(button) {
+  const header = document.getElementById('main-header');
+  if (!header || !button) return;
+  const isOpen = header.classList.toggle('menu-open');
+  button.setAttribute('aria-expanded', String(isOpen));
+  button.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+}
+
+function closeMobileNavigation() {
+  const header = document.getElementById('main-header');
+  const button = header && header.querySelector('.nav-toggle');
+  if (!header || !button) return;
+  header.classList.remove('menu-open');
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-label', 'Abrir menu');
+}
+
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.nav-link, .nav-submenu a')) closeMobileNavigation();
+});
 
 // Preenchimento do texto "Seja bem-vindo ao Pleroma" acompanhando o scroll
 function updateRevealText() {
@@ -140,7 +177,7 @@ function updateRevealText() {
   // Clamp entre 0 e 1 e ajuste de sensibilidade
   progress = Math.min(Math.max(progress * 1.5 - 0.2, 0), 1);
 
-  // Aplica o progresso apenas à camada sólida (1ª camada)
+  // A camada sólida cresce de cima para baixo, a partir de "Mais do que uma escola".
   text.style.backgroundSize = `100% ${progress * 100}%, 100% 100%`;
 }
 

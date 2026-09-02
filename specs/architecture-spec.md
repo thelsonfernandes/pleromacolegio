@@ -83,7 +83,7 @@ Cada página é definida como uma tag `<main>` com a classe `.page-section` e um
 
 ### 3.1 Accordion "Nossos Diferenciais" (`diff-accordion.js`)
 - Estrutura baseada em itens clicáveis `.diff-accordion-item` que contêm a classe `.active` quando abertos.
-- **Transição de Imagens:** Ao abrir um item, a imagem `.diff-accordion-visual img` deve ter sua opacidade reduzida a `0` temporariamente, trocando a origem (`src`) pelo valor contido no atributo `data-image` do item ativo, e depois retornar a opacidade a `1` com uma transição suave.
+- **Troca de Imagens:** Ao abrir um item, a imagem `.diff-accordion-visual img` deve receber diretamente como origem (`src`) o valor contido no atributo `data-image` do item ativo, sem transição de opacidade. Isso evita deixar o container vazio enquanto uma imagem ainda não armazenada em cache é baixada.
 
 ### 3.2 Revelação de Texto no Scroll (`updateRevealText`)
 - A seção `reveal-section` possui uma frase principal (`#text-target`) estilizada com um gradiente duplo no fundo e `-webkit-background-clip: text`.

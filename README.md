@@ -80,15 +80,68 @@ Para visualizar as páginas e interações, você pode:
 
 ---
 
-## Rotas na publicação
+## Publicação na TurboCloud por FTP
 
-O site utiliza rotas SPA compartilháveis: `/home`, `/sobre`, `/formacao/proposta`,
-`/formacao/reforco-formativo`, `/formacao/educacao-infantil`,
-`/formacao/educacao-bilingue`, `/admissao`, `/vagas` e `/contato`.
+O projeto está pronto para uma hospedagem estática Apache/LiteSpeed, como a
+TurboCloud. Não há etapa de build nem dependências de produção: os arquivos são
+servidos diretamente pelo navegador.
 
-Na hospedagem, configure uma regra de *fallback* para que qualquer rota entregue
-`index.html`; o arquivo `_redirects` já inclui essa regra para Netlify. Em outro
-provedor, use a configuração equivalente de rewrite.
+### 1. Arquivos a enviar
+
+Conecte-se com as credenciais FTP fornecidas pela TurboCloud e abra a pasta raiz
+do domínio, normalmente `public_html/` (confirme o nome no painel da hospedagem).
+Envie **o conteúdo desta pasta do projeto** para lá, preservando a estrutura:
+
+```text
+public_html/
+├── .htaccess
+├── index.html
+├── background.mp4
+├── brasao.png
+├── Contraturno.png
+├── Fotos/
+├── public/
+└── src/
+```
+
+Também podem ser enviados `_redirects` e `vercel.json`, mas eles não são usados
+pela TurboCloud. Não é necessário enviar `Antigos/`, `docs/`, `specs/`, arquivos
+de tarefa, `package-lock.json` ou `.git/`.
+
+> Publique o conteúdo na raiz do domínio, e não dentro de uma subpasta. As rotas
+> públicas do site começam com `/`, como `/home` e `/contato`.
+
+### 2. Rotas internas
+
+O arquivo `.htaccess` já incluído configura o fallback necessário para a SPA.
+Assim, todas estas URLs funcionam também quando abertas diretamente ou após
+atualizar a página:
+
+- `/home`
+- `/sobre`
+- `/formacao/proposta`
+- `/formacao/reforco-formativo`
+- `/formacao/educacao-infantil`
+- `/formacao/educacao-bilingue`
+- `/admissao`
+- `/vagas`
+- `/contato`
+
+Caso a TurboCloud use Nginx sem suporte a `.htaccess`, solicite ao suporte a
+seguinte regra de fallback: toda URL que não corresponda a um arquivo ou diretório
+real deve responder com `/index.html`.
+
+### 3. Conferência após o envio
+
+1. Abra o domínio e confirme que a página inicial carrega com imagens e vídeo.
+2. Abra diretamente `https://seu-dominio.com.br/contato` e atualize a página;
+   ela deve continuar exibindo o site, sem erro 404.
+3. Teste os links de WhatsApp, Instagram, mapa e os menus em celular e desktop.
+4. Caso tenha ativado HTTPS no painel, confirme que o site abre em
+   `https://` e configure o redirecionamento para HTTPS no próprio painel.
+
+As credenciais FTP são de acesso administrativo: não as inclua em arquivos do
+site, repositório ou mensagens.
 
 ---
 

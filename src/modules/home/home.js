@@ -84,11 +84,12 @@ window.Modules.home = `
       ${window.Components.diffAccordion}
     </section>
 
-    <!-- BANNER ADMISSÃO CTA + DEPOIMENTOS -->
+    <!-- INÍCIO: seção temporariamente desativada até os vídeos do YouTube estarem disponíveis.
+    BANNER ADMISSÃO CTA + DEPOIMENTOS
     <section class="section-padding bg-dark text-center">
       <div class="container" style="max-width: 800px;">
 
-        <!-- DEPOIMENTOS -->
+        DEPOIMENTOS
         <div id="home-depoimentos">
           <span class="eyebrow-label" style="color: var(--color-champagne-warm);">Depoimentos</span>
           <h2 class="display-h2" style="color: var(--color-off-white);">O que dizem os nossos Professores e Pais</h2>
@@ -116,5 +117,6 @@ window.Modules.home = `
         </div>
       </div>
     </section>
+    FIM: seção temporariamente desativada até os vídeos do YouTube estarem disponíveis. -->
   </main>
 `;

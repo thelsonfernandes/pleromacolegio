@@ -1,0 +1,16 @@
+# TurboCloud (Apache/LiteSpeed) — configuração para a SPA do Colégio Pleroma
+# Mantenha este arquivo na mesma pasta do index.html (normalmente public_html).
+
+Options -MultiViews
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# Entrega arquivos e diretórios reais normalmente (imagens, vídeos, JS etc.).
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Faz com que as rotas da SPA possam ser abertas ou atualizadas diretamente.
+RewriteRule ^ index.html [L]
+
