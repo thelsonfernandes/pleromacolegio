@@ -50,10 +50,16 @@ function submitJobInterest(event) {
 
 function handleModalSubmit(e) {
   e.preventDefault();
+  const data = new FormData(e.target);
+  const name = String(data.get('name') || '').trim();
+  const childAge = String(data.get('child_age') || '').trim();
+  const modality = String(data.get('modality') || '').trim();
+  const message = `Olá, me chamo ${name}!\nEstou interessado em conhecer o Colégio Pleroma.\nInformações adicionais:\nIdade da Criança: ${childAge}\nModalidade: ${modality}`;
+
   if (typeof trackEvent === 'function') trackEvent('generate_lead', { lead_type: 'appointment_whatsapp' });
-  alert('Obrigado! Redirecionando para o atendimento oficial no WhatsApp (32) 99111-4565...');
+  window.open(`https://api.whatsapp.com/send/?phone=5532991114565&text=${encodeURIComponent(message)}`, '_blank');
+  e.target.reset();
   closeModal();
-  window.open('https://api.whatsapp.com/send/?phone=5532991114565', '_blank');
 }
 
 // Controles do Modal de Vídeo (Depoimentos)

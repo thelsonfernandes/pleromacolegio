@@ -24,32 +24,33 @@ window.Modules.admissao = `
         <div class="steps-grid">
           <div class="step-card">
             <div class="step-number">01</div>
-            <h4>Intenção de Matrícula</h4>
+            <h3>Intenção de Matrícula</h3>
             <p style="font-size: 0.9rem; margin-top: 8px;">Contato pelo Whatsapp e preenchimento do formulário familiar para iniciar o
               processo.</p>
           </div>
           <div class="step-card">
             <div class="step-number">02</div>
-            <h4>Agendamento para Visita</h4>
+            <h3>Agendamento para Visita</h3>
             <p style="font-size: 0.9rem; margin-top: 8px;">Agendamos uma visita para que a família conheça nossos
               espaços, rotina e proposta pedagógica.</p>
           </div>
           <div class="step-card">
             <div class="step-number">03</div>
-            <h4>Banco de Admissão</h4>
+            <h3>Banco de Admissão</h3>
             <p style="font-size: 0.9rem; margin-top: 8px;">Análise da solicitação conforme disponibilidade de vagas e
               perfil das turmas.</p>
           </div>
           <div class="step-card">
             <div class="step-number">04</div>
-            <h4>Convite para Matrícula</h4>
+            <h3>Convite para Matrícula</h3>
             <p style="font-size: 0.9rem; margin-top: 8px;">Conclusão mediante a apresentação da documentação e o
               pagamento da taxa de matrícula.</p>
           </div>
         </div>
 
         <div class="text-center" style="margin-top: var(--space-7);">
-          <button class="btn btn-primary" onclick="trackCtaClick('admission_start_whatsapp', 'Inicie o Processo de Matrícula via WhatsApp', 'admission_process'); openModal('admission_process')">Inicie o Processo de Matrícula via WhatsApp</button>
+          <button class="btn btn-primary" onclick="trackCtaClick('admission_start_whatsapp', 'Inicie o Processo de Matrícula via WhatsApp', 'admission_process'); openModal('admission_process')">Inicie o Processo de Matrícula</button>
+          <p style="margin-top: var(--space-4);">Você também pode conhecer nossa <a href="/formacao/proposta" onclick="navigateTo('proposta', 'proposta'); return false;" style="color: var(--color-burgundy-deep); font-weight: 700;">proposta pedagógica</a>.</p>
         </div>
       </div>
     </section>

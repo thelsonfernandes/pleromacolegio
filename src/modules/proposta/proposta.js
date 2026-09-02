@@ -19,7 +19,18 @@ window.Modules.proposta = `
       </section>
       <section class="section-padding" style="background-color: var(--color-surface-light);"><div class="container"><div class="text-center" style="max-width: 780px; margin-inline: auto; margin-bottom: var(--space-6);"><span class="eyebrow-label">Formação de Virtudes</span><h2 class="display-h2">Pequenos hábitos, grandes <span class="accent-script">Raízes</span></h2><p class="body-large">A formação do caráter começa nos gestos de todos os dias. No Pleroma visamos promover a formação integral com raízes em uma:</p></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-5);"><div style="background-color: var(--color-off-white); border-left: 4px solid var(--color-burgundy-deep); padding: var(--space-5);"><h3 style="color: var(--color-burgundy-deep);">Uma rotina com propósito</h3><p>Organizar os materiais, ouvir com atenção, participar das refeições e cuidar do espaço comum são oportunidades reais de aprender responsabilidade e ordem.</p></div><div style="background-color: var(--color-off-white); border-left: 4px solid var(--color-amber-gold); padding: var(--space-5);"><h3 style="color: var(--color-burgundy-deep);">Obediência amorosa</h3><p>Com firmeza serena e afeto, orientamos a criança a responder aos adultos, respeitar os colegas e reconhecer que viver bem também é aprender a amar.</p></div></div></div></section>
       <section class="section-padding"><div class="container" style="max-width: 900px;"><span class="eyebrow-label">Estrutura de Cuidado</span><h2 class="display-h2">Uma extensão <span class="accent-script">Acolhedora</span> do lar</h2><p>A criança floresce quando se sente conhecida, protegida e amada. Por isso, oferecemos um ambiente seguro, organizado e preparado para a sua etapa de desenvolvimento.</p><p><br>O acompanhamento é próximo e individualizado: observamos seus avanços, suas necessidades e seu modo próprio de aprender. Em diálogo com a família, cuidamos para que cada criança encontre na escola um lugar de confiança, pertencimento e alegria.</p></div></section>
-      <section class="section-padding bg-dark"><div class="container text-center" style="max-width: 850px;"><span class="eyebrow-label" style="color: var(--color-champagne-warm);">Parceria com os Pais</span><h2 class="display-h2" style="color: var(--color-off-white);">Caminhamos ao lado da <span class="accent-script" style="color: var(--color-champagne-warm);">Família</span></h2><p style="color: var(--color-champagne-warm);">A família é o primeiro lugar de formação da criança. A escola vem para apoiar essa missão, com escuta, clareza e presença.</p><p style="color: var(--color-off-white);"><br>Seguimos uma cosmovisão bíblica, unindo o cuidado com o desenvolvimento infantil a uma educação que reconhece Cristo como centro de toda a vida. Assim, família e escola caminham juntas para oferecer à criança raízes firmes e um começo com esperança.</p></div></section>
+      <section class="section-padding" style="background-color: var(--color-surface-light);"><div class="container text-center" style="max-width: 850px;"><span class="eyebrow-label">Parceria com os Pais</span><h2 class="display-h2">Caminhamos ao lado da <span class="accent-script">Família</span></h2><p>A família é o primeiro lugar de formação da criança. A escola vem para apoiar essa missão, com escuta, clareza e presença.</p><p><br>Seguimos uma cosmovisão bíblica, unindo o cuidado com o desenvolvimento infantil a uma educação que reconhece Cristo como centro de toda a vida. Assim, família e escola caminham juntas para oferecer à criança raízes firmes e um começo com esperança.</p></div></section>
+      <section class="section-padding bg-dark text-center" aria-labelledby="proposta-proximos-passos">
+        <div class="container" style="max-width: 820px;">
+          <span class="eyebrow-label" style="color: var(--color-champagne-warm);">Da proposta à prática</span>
+          <h2 class="display-h2" id="proposta-proximos-passos" style="color: var(--color-off-white);">Conheça a formação do Pleroma mais de <span class="accent-script" style="color: var(--color-champagne-warm);">Perto</span></h2>
+          <p style="color: var(--color-off-white);">Veja como esses princípios ganham vida na Educação Infantil e no Reforço Formativo.</p>
+          <div class="hero-cta-group" style="margin-top: var(--space-5);">
+            <a class="btn btn-ghost" href="/formacao/educacao-infantil" onclick="trackCtaClick('proposta_educacao_infantil', 'Conheça a Educação Infantil', 'proposta_footer'); navigateTo('proposta', 'infantil'); return false;">Conheça a Educação Infantil</a>
+            <a class="btn btn-primary" href="/formacao/reforco-formativo" onclick="trackCtaClick('proposta_reforco_formativo', 'Conheça o Reforço Formativo', 'proposta_footer'); navigateTo('proposta', 'reforco'); return false;">Conheça o Reforço Formativo</a>
+          </div>
+        </div>
+      </section>
     </div>
     <div id="formacao-module-reforco" class="formacao-module" hidden>
       <section class="section-padding">
@@ -95,6 +106,17 @@ window.Modules.proposta = `
         </div>
       </section>
       FIM: seção temporariamente desativada até o vídeo do YouTube estar disponível. -->
+      <section class="section-padding bg-dark text-center" aria-labelledby="reforco-proximos-passos">
+        <div class="container" style="max-width: 820px;">
+          <span class="eyebrow-label" style="color: var(--color-champagne-warm);">Conheça o Reforço Formativo</span>
+          <h2 class="display-h2" id="reforco-proximos-passos" style="color: var(--color-off-white);">Um tempo de formação com <span class="accent-script" style="color: var(--color-champagne-warm);">Propósito</span></h2>
+          <p style="color: var(--color-off-white);">Converse com nossa equipe para conhecer as oficinas, os turnos e a proposta do Reforço Formativo para crianças de 2 a 5 anos.</p>
+          <div class="hero-cta-group" style="margin-top: var(--space-5);">
+            <a class="btn btn-ghost" href="/admissao" onclick="trackCtaClick('reforco_admission', 'Conheça o Processo de Matrícula', 'reforco_footer'); navigateTo('admissao'); return false;">Conheça o Processo de Matrícula</a>
+            <button class="btn btn-primary" type="button" onclick="trackCtaClick('reforco_schedule_visit', 'Agende sua Visita', 'reforco_footer'); openModal('reforco_footer')">Agende sua Visita</button>
+          </div>
+        </div>
+      </section>
     </div>
     <div id="formacao-module-infantil" class="formacao-module" hidden>
       <section class="section-padding">
@@ -111,7 +133,7 @@ window.Modules.proposta = `
           <div style="max-width: 850px; margin-inline: auto; margin-bottom: var(--space-6);">
             <span class="eyebrow-label">Turnos e faixas etárias</span>
             <h2 class="display-h2">Um cotidiano preparado para a <span class="accent-script">Primeira Infância</span></h2>
-            <p> No Jardim de Infância, atendemos crianças de 2 a 5 anos em uma jornada de aprendizagem, vínculo e formação integral. Contamos com dois turnos para às turmas de 2 e 3 anos e de 4 e 5 anos, com experiências planejadas de acolhida, histórias, movimento, investigação, brincadeiras e hábitos de convivência.</p>
+            <p>No Jardim de Infância, atendemos crianças de 2 a 5 anos em uma jornada de aprendizagem, vínculo e formação integral. Contamos com turnos pela manhã e à tarde para as turmas de 2 e 3 anos e de 4 e 5 anos, com experiências planejadas de acolhida, histórias, movimento, investigação, brincadeiras e hábitos de convivência.</p>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-5); max-width: 680px; margin-inline: auto;">
             <article style="background: var(--color-off-white); border: 1px solid var(--color-border-light); border-left: 4px solid var(--color-burgundy-deep); padding: var(--space-5);"><h3>Turno da manhã</h3><p style="font-weight: 700; color: var(--color-amber-gold-dark); margin-bottom: 0;">07h30 às 11h30</p></article>
@@ -153,12 +175,24 @@ window.Modules.proposta = `
         </div>
       </section>
 
-      <section class="section-padding bg-dark">
+      <section class="section-padding">
         <div class="container" style="max-width: 900px;">
-          <span class="eyebrow-label" style="color: var(--color-champagne-warm);">Uma educação próxima</span>
-          <h2 class="display-h2" style="color: var(--color-off-white);">Cada criança é conhecida pelo <span class="accent-script" style="color: var(--color-champagne-warm);">Nome</span></h2>
-          <p style="color: var(--color-champagne-warm);">Em turmas pequenas, acompanhamos cada criança com atenção ao seu desenvolvimento, seus vínculos, suas descobertas e suas necessidades.</p>
-          <p style="color: var(--color-off-white);"><br>A observação diária, as produções da criança e o diálogo frequente com a família orientam esse acompanhamento. Assim, os pais participam do percurso e recebem uma visão cuidadosa dos avanços, das conquistas e dos próximos passos de seus filhos.</p>
+          <span class="eyebrow-label">Uma educação próxima</span>
+          <h2 class="display-h2">Cada criança é conhecida pelo <span class="accent-script">Nome</span></h2>
+          <p>Em turmas pequenas, acompanhamos cada criança com atenção ao seu desenvolvimento, seus vínculos, suas descobertas e suas necessidades.</p>
+          <p><br>A observação diária, as produções da criança e o diálogo frequente com a família orientam esse acompanhamento. Assim, os pais participam do percurso e recebem uma visão cuidadosa dos avanços, das conquistas e dos próximos passos de seus filhos.</p>
+        </div>
+      </section>
+
+      <section class="section-padding bg-dark text-center" aria-labelledby="infantil-proximos-passos">
+        <div class="container" style="max-width: 820px;">
+          <span class="eyebrow-label" style="color: var(--color-champagne-warm);">Conheça o Pleroma</span>
+          <h2 class="display-h2" id="infantil-proximos-passos" style="color: var(--color-off-white);">Próximos passos para sua <span class="accent-script" style="color: var(--color-champagne-warm);">Família</span></h2>
+          <p style="color: var(--color-off-white);">Conheça o processo de admissão ou agende uma visita para conversar com nossa equipe e conhecer de perto a proposta da Educação Infantil.</p>
+          <div class="hero-cta-group" style="margin-top: var(--space-5);">
+            <a class="btn btn-ghost" href="/admissao" onclick="trackCtaClick('infantil_admission', 'Conheça o Processo de Admissão', 'infantil_footer'); navigateTo('admissao'); return false;">Conheça o Processo de Matrícula</a>
+            <button class="btn btn-primary" type="button" onclick="trackCtaClick('infantil_schedule_visit', 'Agende sua Visita', 'infantil_footer'); openModal('infantil_footer')">Agende sua Visita</button>
+          </div>
         </div>
       </section>
 

@@ -1,0 +1,8 @@
+{
+  "name": "colegio-pleroma-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-static.js",
+    "validate:static": "node scripts/validate-static.js"
+  }
+}

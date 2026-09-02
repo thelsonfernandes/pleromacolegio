@@ -7,14 +7,26 @@ const routes = {
   '/formacao/educacao-bilingue': { page: 'proposta', module: 'bilingue' },
   '/admissao': { page: 'admissao' }, '/vagas': { page: 'faca-parte' }, '/contato': { page: 'contato' }
 };
-const pageRoutes = { home: '/home', sobre: '/sobre', proposta: '/formacao/proposta', admissao: '/admissao', 'faca-parte': '/vagas', contato: '/contato' };
+const pageRoutes = { home: '/', sobre: '/sobre', proposta: '/formacao/proposta', admissao: '/admissao', 'faca-parte': '/vagas', contato: '/contato' };
 const formacaoRoutes = { proposta: '/formacao/proposta', reforco: '/formacao/reforco-formativo', infantil: '/formacao/educacao-infantil', bilingue: '/formacao/educacao-bilingue' };
+const staticRouteFiles = {
+  '/': 'index.html',
+  '/sobre': 'sobre.html',
+  '/formacao/proposta': 'formacao/proposta.html',
+  '/formacao/reforco-formativo': 'formacao/reforco-formativo.html',
+  '/formacao/educacao-infantil': 'formacao/educacao-infantil.html',
+  '/formacao/educacao-bilingue': 'formacao/educacao-bilingue.html',
+  '/admissao': 'admissao.html',
+  '/vagas': 'vagas.html',
+  '/contato': 'contato.html'
+};
 
 function normalizePath(pathname) { return (pathname.replace(/\/+$/, '') || '/').toLowerCase(); }
 function resolveRoute(pathname) { return routes[normalizePath(pathname)] || routes['/']; }
+function currentRoutePath() { return document.documentElement.dataset.routePath || window.location.pathname; }
 
 function renderRoute(route, shouldScroll) {
-  if (typeof updateSeoForPath === 'function') updateSeoForPath(window.location.pathname);
+  if (typeof updateSeoForPath === 'function') updateSeoForPath(currentRoutePath());
   document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
   const targetSection = document.getElementById('page-' + route.page);
@@ -30,11 +42,20 @@ function renderRoute(route, shouldScroll) {
 function navigateTo(pageId, formacaoModule) {
   const path = pageId === 'proposta' && formacaoModule ? formacaoRoutes[formacaoModule] : pageRoutes[pageId];
   if (!path) return;
+  if (document.documentElement.dataset.prerendered === 'true') {
+    if (window.location.protocol === 'file:') {
+      const localFile = staticRouteFiles[path];
+      if (localFile) window.location.href = new URL(localFile, document.baseURI).href;
+    } else {
+      window.location.href = path;
+    }
+    return;
+  }
   if (window.location.protocol !== 'file:' && normalizePath(window.location.pathname) !== path) window.history.pushState({}, '', path);
   renderRoute(resolveRoute(path), true);
 }
 
-function loadRouteFromUrl() { renderRoute(resolveRoute(window.location.pathname), false); }
+function loadRouteFromUrl() { renderRoute(resolveRoute(currentRoutePath()), false); }
 window.addEventListener('popstate', loadRouteFromUrl);
 
 // Fecha o menu de forma\u00e7\u00e3o ap\u00f3s uma escolha. Ele s\u00f3 volta a abrir quando o

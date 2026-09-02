@@ -38,7 +38,7 @@ window.Components.footer = `
         <div>
           <h4 class="footer-title">Navegação</h4>
           <ul class="footer-links">
-            <li><a href="/home" onclick="navigateTo('home'); return false;">Início</a></li>
+            <li><a href="/" onclick="navigateTo('home'); return false;">Início</a></li>
             <li><a href="/sobre" onclick="navigateTo('sobre'); return false;">Sobre</a></li>
             <li><a href="/formacao/proposta" onclick="navigateTo('proposta'); return false;">Nossa Formação</a></li>
             <li><a href="/admissao" onclick="navigateTo('admissao'); return false;">Matrícula</a></li>

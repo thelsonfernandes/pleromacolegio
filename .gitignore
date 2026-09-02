@@ -3,6 +3,7 @@
 Thumbs.db
 .vscode/
 Antigos/
+dist/
 .env
 .env.*
 !.env.example

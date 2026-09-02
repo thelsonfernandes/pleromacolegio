@@ -2,7 +2,7 @@ window.Components = window.Components || {};
 window.Components.header = `
   <header class="site-header" id="main-header">
     <div class="container header-container">
-      <a href="/home" class="brand-logo" onclick="navigateTo('home'); return false;">
+      <a href="/" class="brand-logo" onclick="navigateTo('home'); return false;">
         <img src="brasao.png" alt="Brasão do Colégio Pleroma" class="logo-shield-img">
       </a>
 
@@ -12,7 +12,7 @@ window.Components.header = `
 
       <nav id="main-navigation" class="main-navigation">
         <ul class="nav-menu">
-          <li><a href="/home" class="nav-link active" onclick="navigateTo('home'); return false;" id="nav-home">Início</a></li>
+          <li><a href="/" class="nav-link active" onclick="navigateTo('home'); return false;" id="nav-home">Início</a></li>
           <li><a href="/sobre" class="nav-link" onclick="navigateTo('sobre'); return false;" id="nav-sobre">Sobre</a></li>
           <li class="nav-dropdown">
             <a href="/formacao/proposta" class="nav-link" onclick="navigateTo('proposta', 'proposta'); return false;" id="nav-proposta">Nossa Formação</a>

@@ -10,12 +10,12 @@ window.Components.appointmentModal = `
       </h3>
       <form onsubmit="handleModalSubmit(event)">
         <div class="form-group">
-          <label class="form-label">Nome do Responsável</label>
-          <input type="text" class="form-input" required placeholder="Seu nome">
+          <label class="form-label" for="appointment-name">Nome do Responsável</label>
+          <input id="appointment-name" name="name" type="text" class="form-input" required placeholder="Seu nome">
         </div>
         <div class="form-group">
-          <label class="form-label">Idade da Criança</label>
-          <select class="form-select">
+          <label class="form-label" for="appointment-child-age">Idade da Criança</label>
+          <select id="appointment-child-age" name="child_age" class="form-select">
             <option>2 anos</option>
             <option>3 anos</option>
             <option>4 anos</option>
@@ -23,10 +23,10 @@ window.Components.appointmentModal = `
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Modalidade de Interesse</label>
-          <select class="form-select">
-            <option>Reforço Formativo (Atual)</option>
-            <option>Colégio Pleroma (Visão 2027)</option>
+          <label class="form-label" for="appointment-modality">Modalidade de Interesse</label>
+          <select id="appointment-modality" name="modality" class="form-select">
+            <option>Reforço Formativo</option>
+            <option>Colégio Pleroma</option>
             <option>Ambas as Modalidades</option>
           </select>
         </div>

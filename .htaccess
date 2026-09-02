@@ -1,16 +1,32 @@
-# TurboCloud (Apache/LiteSpeed) — configuração para a SPA do Colégio Pleroma
-# Mantenha este arquivo na mesma pasta do index.html (normalmente public_html).
+# TurboCloud (Apache/LiteSpeed) — páginas HTML estáticas do Colégio Pleroma.
+# Publique este arquivo junto ao conteúdo gerado em dist/.
 
 Options -MultiViews
 DirectoryIndex index.html
 
 RewriteEngine On
 
-# Entrega arquivos e diretórios reais normalmente (imagens, vídeos, JS etc.).
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+# Consolida HTTPS e o domínio sem www.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^colegiopleroma\.com\.br$ [NC]
+RewriteRule ^ https://colegiopleroma.com.br%{REQUEST_URI} [R=301,L]
 
-# Faz com que as rotas da SPA possam ser abertas ou atualizadas diretamente.
-RewriteRule ^ index.html [L]
+# Remove index.html, extensões .html e barras finais das URLs públicas.
+RewriteCond %{THE_REQUEST} \s/+index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[?\s] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(.+?)/[?\s] [NC]
+RewriteRule ^(.+)/$ /$1 [R=301,L]
 
+# A antiga rota /home é consolidada na URL canônica da página inicial.
+RewriteRule ^home/?$ / [R=301,L]
+
+# Serve /sobre a partir de sobre.html e preserva a URL pública sem extensão.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# URLs inexistentes retornam um 404 verdadeiro, sem carregar a Home.
+ErrorDocument 404 /404.html

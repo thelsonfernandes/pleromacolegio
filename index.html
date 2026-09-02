@@ -8,13 +8,13 @@
        Em um servidor, a raiz continua sendo usada para as rotas SPA. -->
   <base id="app-base" href="/" />
   <script>
-    if (window.location.protocol === 'file:') {
+    if (window.location.protocol === 'file:' && document.documentElement.dataset.prerendered !== 'true') {
       document.getElementById('app-base').href = './';
     }
   </script>
   <title>Pleroma - Colégio Cristão Clássico</title>
   <meta name="description"
-    content="Conheça o Pleroma, colégio cristão clássico em Juiz de Fora. Educação Infantil fundamentada em Cristo, na verdade, na bondade e na beleza." />
+    content="Matrículas abertas no Pleroma, colégio cristão clássico em Juiz de Fora. Conheça nossa Educação Infantil e inscreva-se para uma visita." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Pleroma - Colégio Cristão Clássico" />
   <meta name="theme-color" content="#521D21" />
@@ -24,7 +24,7 @@
   <meta property="og:site_name" content="Pleroma - Colégio Cristão Clássico" />
   <meta id="seo-og-title" property="og:title" content="Pleroma - Colégio Cristão Clássico" />
   <meta id="seo-og-description" property="og:description"
-    content="Educação Infantil cristã clássica em Juiz de Fora, formando mentes, corpos e corações para a glória de Deus." />
+    content="Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita." />
   <meta id="seo-og-url" property="og:url" content="https://colegiopleroma.com.br/" />
   <meta id="seo-og-image" property="og:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.png" />
   <meta property="og:image:alt" content="Alunos do Pleroma - Colégio Cristão Clássico" />
@@ -32,7 +32,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta id="seo-twitter-title" name="twitter:title" content="Pleroma - Colégio Cristão Clássico" />
   <meta id="seo-twitter-description" name="twitter:description"
-    content="Educação Infantil cristã clássica em Juiz de Fora, formando mentes, corpos e corações para a glória de Deus." />
+    content="Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita." />
   <meta id="seo-twitter-image" name="twitter:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.png" />
   <link rel="icon" type="image/jpeg" href="public/escudo.jpg" />
 

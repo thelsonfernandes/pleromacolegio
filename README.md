@@ -82,42 +82,60 @@ Para visualizar as páginas e interações, você pode:
 
 ## Publicação na TurboCloud por FTP
 
-O projeto está pronto para uma hospedagem estática Apache/LiteSpeed, como a
-TurboCloud. Não há etapa de build nem dependências de produção: os arquivos são
-servidos diretamente pelo navegador.
+O projeto gera páginas HTML estáticas para hospedagem Apache/LiteSpeed, como a
+TurboCloud. O build é executado localmente e não possui dependências externas:
+
+```powershell
+node scripts/build-static.js
+node scripts/validate-static.js
+```
+
+Os arquivos prontos para publicação são gravados em `dist/`. Cada rota recebe
+seu próprio HTML, metadados, canonical e JSON-LD antes do envio ao servidor.
 
 ### 1. Arquivos a enviar
 
 Conecte-se com as credenciais FTP fornecidas pela TurboCloud e abra a pasta raiz
 do domínio, normalmente `public_html/` (confirme o nome no painel da hospedagem).
-Envie **o conteúdo desta pasta do projeto** para lá, preservando a estrutura:
+Envie **somente o conteúdo de `dist/`** para lá, preservando a estrutura:
 
 ```text
 public_html/
 ├── .htaccess
+├── 404.html
+├── admissao.html
+├── contato.html
 ├── index.html
+├── sobre.html
+├── vagas.html
+├── robots.txt
+├── sitemap.xml
 ├── background.mp4
 ├── brasao.png
 ├── Contraturno.png
 ├── Fotos/
+├── formacao/
+│   ├── proposta.html
+│   ├── reforco-formativo.html
+│   ├── educacao-infantil.html
+│   └── educacao-bilingue.html
 ├── public/
 └── src/
 ```
 
-Também podem ser enviados `_redirects` e `vercel.json`, mas eles não são usados
-pela TurboCloud. Não é necessário enviar `Antigos/`, `docs/`, `specs/`, arquivos
-de tarefa, `package-lock.json` ou `.git/`.
+Não envie a raiz do projeto, os scripts de build, documentos ou arquivos de
+desenvolvimento. A pasta `dist/` já contém apenas o necessário em produção.
 
 > Publique o conteúdo na raiz do domínio, e não dentro de uma subpasta. As rotas
-> públicas do site começam com `/`, como `/home` e `/contato`.
+> públicas do site começam com `/`, como `/sobre` e `/contato`.
 
 ### 2. Rotas internas
 
-O arquivo `.htaccess` já incluído configura o fallback necessário para a SPA.
-Assim, todas estas URLs funcionam também quando abertas diretamente ou após
-atualizar a página:
+O `.htaccess` serve os arquivos HTML pelas URLs públicas sem extensão, consolida
+HTTPS e o domínio canônico, redireciona `/home` para `/` e retorna um erro 404
+real para endereços inexistentes:
 
-- `/home`
+- `/`
 - `/sobre`
 - `/formacao/proposta`
 - `/formacao/reforco-formativo`
@@ -127,18 +145,17 @@ atualizar a página:
 - `/vagas`
 - `/contato`
 
-Caso a TurboCloud use Nginx sem suporte a `.htaccess`, solicite ao suporte a
-seguinte regra de fallback: toda URL que não corresponda a um arquivo ou diretório
-real deve responder com `/index.html`.
+Não configure fallback geral para `index.html`, pois isso voltaria a transformar
+URLs inexistentes em respostas da Home e eliminaria o 404 real.
 
 ### 3. Conferência após o envio
 
 1. Abra o domínio e confirme que a página inicial carrega com imagens e vídeo.
-2. Abra diretamente `https://seu-dominio.com.br/contato` e atualize a página;
+2. Abra diretamente `https://colegiopleroma.com.br/contato` e atualize a página;
    ela deve continuar exibindo o site, sem erro 404.
-3. Teste os links de WhatsApp, Instagram, mapa e os menus em celular e desktop.
-4. Caso tenha ativado HTTPS no painel, confirme que o site abre em
-   `https://` e configure o redirecionamento para HTTPS no próprio painel.
+3. Abra uma URL inexistente e confirme que a página 404 aparece com status 404.
+4. Teste os links de WhatsApp, Instagram, mapa e os menus em celular e desktop.
+5. Confirme que HTTP e `www` redirecionam para `https://colegiopleroma.com.br`.
 
 As credenciais FTP são de acesso administrativo: não as inclua em arquivos do
 site, repositório ou mensagens.
