@@ -4,5 +4,8 @@
   "scripts": {
     "build": "node scripts/build-static.js",
     "validate:static": "node scripts/validate-static.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
   }
 }

@@ -76,12 +76,19 @@ document.addEventListener('pointerout', event => {
   dropdown.classList.remove('is-closed-after-selection');
 });
 
+let headerFramePending = false;
 window.addEventListener('scroll', () => {
-  const header = document.getElementById('main-header');
-  if (!header) return;
-  header.classList.toggle('scrolled', window.scrollY > 50);
-  updateHeaderCta();
-});
+  if (headerFramePending) return;
+  headerFramePending = true;
+  window.requestAnimationFrame(() => {
+    const header = document.getElementById('main-header');
+    if (header) {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+      updateHeaderCta();
+    }
+    headerFramePending = false;
+  });
+}, { passive: true });
 
 function updateHeaderCta() {
   const ctaBtn = document.getElementById('header-cta-btn');

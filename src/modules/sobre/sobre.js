@@ -11,7 +11,8 @@ window.Modules.sobre = `
         <p class="body-large" style="color: var(--color-champagne-warm);">Conheça a visão e o compromisso dos nossos fundadores com as famílias de Juiz de Fora.</p>
         <div class="video-showcase">
           <div class="video-thumb-wrapper">
-            <img src="Fotos/Sobre - Video da Direcao.png" alt="Mensagem da Direção do Pleroma" class="video-thumb-img">
+            <img src="Fotos/Sobre - Video da Direcao.webp" width="1536" height="1024" loading="lazy" decoding="async"
+              alt="Mensagem da Direção do Pleroma" class="video-thumb-img">
             <div class="video-thumb-overlay">
               <button class="video-play-btn" onclick="showVideoModal('Palavra da Direção do Pleroma', 'dQw4w9WgXcQ')" aria-label="Assistir à mensagem da direção"></button>
               <span class="video-caption-title">Assista à Mensagem da Direção</span>

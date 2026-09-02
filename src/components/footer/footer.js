@@ -36,7 +36,7 @@ window.Components.footer = `
         </div>
 
         <div>
-          <h4 class="footer-title">Navegação</h4>
+          <h2 class="footer-title">Navegação</h2>
           <ul class="footer-links">
             <li><a href="/" onclick="navigateTo('home'); return false;">Início</a></li>
             <li><a href="/sobre" onclick="navigateTo('sobre'); return false;">Sobre</a></li>
@@ -46,7 +46,7 @@ window.Components.footer = `
         </div>
 
         <div>
-          <h4 class="footer-title">Modalidades</h4>
+          <h2 class="footer-title">Modalidades</h2>
           <ul class="footer-links">
             <li><a href="/formacao/reforco-formativo" onclick="navigateTo('proposta', 'reforco'); return false;">Reforço Formativo (2 a 5 anos)</a></li>
             <li><a href="/formacao/educacao-infantil" onclick="navigateTo('proposta', 'infantil'); return false;">Educação Infantil (Visão 2027)</a></li>
@@ -55,7 +55,7 @@ window.Components.footer = `
         </div>
 
         <div>
-          <h4 class="footer-title">Contato & Sede</h4>
+          <h2 class="footer-title">Contato & Sede</h2>
           <p style="font-size: 0.85rem; color: var(--color-off-white);">Rua Antônio Lagrota, 125</p>
           <p style="font-size: 0.85rem; color: var(--color-off-white);">Mariano Procópio — Juiz de Fora/MG</p>
           <p style="font-size: 0.85rem; color: var(--color-amber-gold); margin-top: 8px;">WhatsApp: (32) 99111-4565</p>

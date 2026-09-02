@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const { transformSync } = require('esbuild');
 
 const projectRoot = path.resolve(__dirname, '..');
 const outputRoot = path.join(projectRoot, 'dist');
@@ -158,9 +159,10 @@ function getPageMarkup(route) {
 
 function buildBody(route) {
   const components = templateContext.window.Components;
-  const scriptsStart = sourceIndex.indexOf('  <!-- COMPONENTES GLOBAIS -->');
-  const scriptsEnd = sourceIndex.indexOf('</body>');
-  const scripts = sourceIndex.slice(scriptsStart, scriptsEnd).trimEnd();
+  const runtimeScripts = [
+    route.formation ? '  <script src="assets/js/formation.min.js"></script>' : '',
+    '  <script src="assets/js/site.min.js"></script>'
+  ].filter(Boolean).join('\n');
   return [
     '<body>',
     components.header,
@@ -168,7 +170,7 @@ function buildBody(route) {
     components.footer,
     components.appointmentModal,
     components.videoModal,
-    scripts,
+    runtimeScripts,
     '</body>'
   ].join('\n\n');
 }
@@ -184,7 +186,49 @@ function buildPage(route) {
     `<html lang="pt-BR" data-prerendered="true" data-route-path="${route.path}">`
   );
   html = html.replace(/<base id="app-base" href="[^"]*" \/>/, `<base id="app-base" href="${baseHref}" />`);
-  return applyStaticSeo(html, captureSeo(route.path));
+  html = applyStaticSeo(html, captureSeo(route.path));
+  return html.replace(/<style>([\s\S]*?)<\/style>/i, (_, css) => {
+    const minified = transformSync(css, { loader: 'css', minify: true, legalComments: 'none' }).code;
+    return `<style>${minified}</style>`;
+  });
+}
+
+function writeRuntimeBundles() {
+  const outputScripts = path.join(outputRoot, 'assets', 'js');
+  fs.mkdirSync(outputScripts, { recursive: true });
+
+  const commonFiles = [
+    'src/core/analytics.js',
+    'src/core/utils.js',
+    'src/core/navigation.js',
+    'src/core/renderer.js'
+  ];
+  const exposedFunctions = [
+    'trackEvent', 'trackPageView', 'trackCtaClick', 'openModal', 'closeModal',
+    'openJobInterestModal', 'closeJobInterestModal', 'submitJobInterest', 'handleModalSubmit',
+    'showVideoModal', 'closeVideoModal', 'toggleDiffAccordion', 'toggleMobileNavigation',
+    'closeMobileNavigation', 'navigateTo'
+  ];
+  const commonSource = commonFiles
+    .map(file => fs.readFileSync(path.join(projectRoot, file), 'utf8'))
+    .join('\n') + `\nObject.assign(window, { ${exposedFunctions.join(', ')} });`;
+  const commonBundle = transformSync(commonSource, {
+    loader: 'js',
+    minify: true,
+    legalComments: 'none'
+  }).code;
+  fs.writeFileSync(path.join(outputScripts, 'site.min.js'), commonBundle, 'utf8');
+
+  const formationSource = fs.readFileSync(
+    path.join(projectRoot, 'src/modules/proposta/proposta-interactions.js'),
+    'utf8'
+  );
+  const formationBundle = transformSync(formationSource, {
+    loader: 'js',
+    minify: true,
+    legalComments: 'none'
+  }).code;
+  fs.writeFileSync(path.join(outputScripts, 'formation.min.js'), formationBundle, 'utf8');
 }
 
 function buildNotFoundPage() {
@@ -203,10 +247,16 @@ function buildNotFoundPage() {
 }
 
 function copyRuntimeFiles() {
-  ['src', 'Fotos', 'public'].forEach(directory => {
+  ['public', 'assets'].forEach(directory => {
     fs.cpSync(path.join(projectRoot, directory), path.join(outputRoot, directory), { recursive: true });
   });
-  ['background.mp4', 'brasao.png', 'Contraturno.png', 'robots.txt', 'sitemap.xml', '.htaccess'].forEach(file => {
+  const sourcePhotos = path.join(projectRoot, 'Fotos');
+  const outputPhotos = path.join(outputRoot, 'Fotos');
+  fs.mkdirSync(outputPhotos, { recursive: true });
+  fs.readdirSync(sourcePhotos)
+    .filter(file => path.extname(file).toLowerCase() === '.webp')
+    .forEach(file => fs.copyFileSync(path.join(sourcePhotos, file), path.join(outputPhotos, file)));
+  ['background-optimized.mp4', 'hero-poster.webp', 'brasao.webp', 'brasao-header.webp', 'robots.txt', 'sitemap.xml', '.htaccess'].forEach(file => {
     fs.copyFileSync(path.join(projectRoot, file), path.join(outputRoot, file));
   });
 }
@@ -217,6 +267,7 @@ if (path.dirname(outputRoot) !== projectRoot || path.basename(outputRoot) !== 'd
 fs.rmSync(outputRoot, { recursive: true, force: true });
 fs.mkdirSync(outputRoot, { recursive: true });
 copyRuntimeFiles();
+writeRuntimeBundles();
 
 routes.forEach(route => {
   const outputPath = path.join(outputRoot, route.output);

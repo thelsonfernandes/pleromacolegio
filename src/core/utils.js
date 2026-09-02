@@ -143,6 +143,9 @@ function syncMobileAccordionImages(wrapper, activeItem, imageSrc) {
   image.src = imageSrc;
   image.alt = activeItem.querySelector('.diff-accordion-trigger')?.textContent.trim() || 'Atividade do Colégio Pleroma';
   image.loading = 'lazy';
+  image.decoding = 'async';
+  image.width = 1024;
+  image.height = 1024;
   visual.appendChild(image);
   activeItem.insertBefore(visual, activeItem.firstChild);
 }
@@ -187,6 +190,16 @@ function updateRevealText() {
   text.style.backgroundSize = `100% ${progress * 100}%, 100% 100%`;
 }
 
-// Event listeners do scroll reveal
-window.addEventListener('scroll', updateRevealText);
-window.addEventListener('resize', updateRevealText);
+// Agrupa eventos frequentes para executar no máximo um cálculo de layout por frame.
+let revealFramePending = false;
+function scheduleRevealTextUpdate() {
+  if (revealFramePending) return;
+  revealFramePending = true;
+  window.requestAnimationFrame(() => {
+    updateRevealText();
+    revealFramePending = false;
+  });
+}
+
+window.addEventListener('scroll', scheduleRevealTextUpdate, { passive: true });
+window.addEventListener('resize', scheduleRevealTextUpdate);

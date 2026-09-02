@@ -3,7 +3,7 @@ window.Components.diffAccordion = `
   <!-- Fora do .container: a imagem ocupa toda a lateral direita até a borda da tela -->
   <div class="diff-accordion-wrapper">
     <div class="diff-accordion-list">
-      <div class="diff-accordion-item active" data-image="Fotos/Home - Diferenciais - Cristo no Centro do Saber.png">
+      <div class="diff-accordion-item active" data-image="Fotos/Home - Diferenciais - Cristo no Centro do Saber.webp">
         <button class="diff-accordion-trigger" onclick="toggleDiffAccordion(this)">
           <span>Cristo no Centro do Saber</span>
           <span class="diff-accordion-icon">+</span>
@@ -16,7 +16,7 @@ window.Components.diffAccordion = `
         </div>
       </div>
 
-      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Formacao Classica Integral.png">
+      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Formacao Classica Integral.webp">
         <button class="diff-accordion-trigger" onclick="toggleDiffAccordion(this)">
           <span>Formação Clássica Integral</span>
           <span class="diff-accordion-icon">+</span>
@@ -30,7 +30,7 @@ window.Components.diffAccordion = `
         </div>
       </div>
 
-      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Afetos.png">
+      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Afetos.webp">
         <button class="diff-accordion-trigger" onclick="toggleDiffAccordion(this)">
           <span>Educação dos Afetos</span>
           <span class="diff-accordion-icon">+</span>
@@ -43,7 +43,7 @@ window.Components.diffAccordion = `
         </div>
       </div>
 
-      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Professores pelo Exemplo.png">
+      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Professores pelo Exemplo.webp">
         <button class="diff-accordion-trigger" onclick="toggleDiffAccordion(this)">
           <span>Professores pelo Exemplo</span>
           <span class="diff-accordion-icon">+</span>
@@ -57,7 +57,7 @@ window.Components.diffAccordion = `
         </div>
       </div>
 
-      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Preceptoria Individualizada.png">
+      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Preceptoria Individualizada.webp">
         <button class="diff-accordion-trigger" onclick="toggleDiffAccordion(this)">
           <span>Preceptoria Individualizada</span>
           <span class="diff-accordion-icon">+</span>
@@ -71,7 +71,7 @@ window.Components.diffAccordion = `
         </div>
       </div>
 
-      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Formacao Bilingue.png">
+      <div class="diff-accordion-item" data-image="Fotos/Home - Diferenciais - Formacao Bilingue.webp">
         <button class="diff-accordion-trigger" onclick="toggleDiffAccordion(this)">
           <span>Formação Bilíngue Integrada</span>
           <span class="diff-accordion-icon">+</span>
@@ -86,7 +86,8 @@ window.Components.diffAccordion = `
     </div>
 
     <div class="diff-accordion-visual">
-      <img id="diff-visual-img" class="lazy" loading="lazy" alt="Diferenciais do Colégio Pleroma">
+      <img id="diff-visual-img" class="lazy" width="1024" height="1024" loading="lazy" decoding="async"
+        alt="Diferenciais do Colégio Pleroma">
     </div>
   </div>
 `;

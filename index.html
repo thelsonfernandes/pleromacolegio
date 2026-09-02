@@ -26,27 +26,64 @@
   <meta id="seo-og-description" property="og:description"
     content="Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita." />
   <meta id="seo-og-url" property="og:url" content="https://colegiopleroma.com.br/" />
-  <meta id="seo-og-image" property="og:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.png" />
+  <meta id="seo-og-image" property="og:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.webp" />
   <meta property="og:image:alt" content="Alunos do Pleroma - Colégio Cristão Clássico" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta id="seo-twitter-title" name="twitter:title" content="Pleroma - Colégio Cristão Clássico" />
   <meta id="seo-twitter-description" name="twitter:description"
     content="Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita." />
-  <meta id="seo-twitter-image" name="twitter:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.png" />
+  <meta id="seo-twitter-image" name="twitter:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.webp" />
   <link rel="icon" type="image/jpeg" href="public/escudo.jpg" />
 
   <!-- GOOGLE TAG PLACEHOLDER: cole aqui apenas o snippet oficial do Google.
        IDs de medição são públicos; nunca inclua chaves de API, tokens ou segredos no site. -->
 
-  <!-- Fontes Oficiais do Design System -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <!-- Fontes locais prioritárias da primeira tela -->
+  <link rel="preload" href="assets/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    @font-face {
+      font-family: 'Alex Brush';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('assets/fonts/alex-brush-latin.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Cinzel';
+      font-style: normal;
+      font-weight: 500 800;
+      font-display: swap;
+      src: url('assets/fonts/cinzel-latin.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('assets/fonts/cormorant-garamond-normal-latin.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 400 600;
+      font-display: swap;
+      src: url('assets/fonts/cormorant-garamond-italic-latin.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('assets/fonts/montserrat-latin.woff2') format('woff2');
+    }
+
     /* ==========================================================================
        1. VARIABLES & TOKENS (Design System Consolidado V2)
        ========================================================================== */
@@ -64,8 +101,8 @@
       /* Accent Colors */
       --color-amber-gold: #D4A343;
       /* Dourado Âmbar (CTAs) 5% */
-      --color-amber-gold-dark: #B8882D;
-      /* Dourado Caligráfico / Texto Claro */
+      --color-amber-gold-dark: #8A621C;
+      /* Dourado acessível para textos sobre superfícies claras */
 
       /* Neutros & Superfícies */
       --color-off-white: #FAF6F0;
@@ -74,7 +111,7 @@
       /* Fundo de Cards Claros */
       --color-off-black: #1A1112;
       /* Texto Corrido */
-      --color-muted-gray: #8C827A;
+      --color-muted-gray: #6F6660;
       /* Subtítulos Secundários */
       --color-border-light: #E2D9CC;
       /* Bordas Finas */
@@ -152,7 +189,7 @@
     .accent-script {
       font-family: var(--font-script);
       font-weight: 400;
-      color: var(--color-amber-gold);
+      color: #A06D16;
       font-size: 1.4em;
       display: inline-block;
       line-height: 0.8;
@@ -169,6 +206,18 @@
       color: var(--color-amber-gold-dark);
       display: block;
       margin-bottom: var(--space-2);
+    }
+
+    .hero-home .accent-script,
+    .hero-internal .accent-script,
+    .bg-dark .accent-script {
+      color: var(--color-amber-gold);
+    }
+
+    .welcome-banner .eyebrow-label,
+    .bg-dark .eyebrow-label,
+    .hero-internal .eyebrow-label {
+      color: var(--color-amber-gold);
     }
 
     .body-large {
@@ -191,7 +240,6 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      transition: background-color 300ms ease, padding 300ms ease, border-color 300ms ease;
       padding-block: var(--space-4);
       background-color: rgba(82, 29, 33, 0.4);
       backdrop-filter: blur(8px);
@@ -525,23 +573,23 @@
 
     /* Specific Static Backgrounds for Internal Pages */
     .bg-sobre {
-      background-image: url('Fotos/Sobre - Banner.png');
+      background-image: url('Fotos/Sobre - Banner.webp');
     }
 
     .bg-proposta {
-      background-image: url('Fotos/Nossa Formacao - Banner.png');
+      background-image: url('Fotos/Nossa Formacao - Banner.webp');
     }
 
     .bg-admissao {
-      background-image: url('Fotos/Admissao - Banner.png');
+      background-image: url('Fotos/Admissao - Banner.webp');
     }
 
     .bg-faca-parte {
-      background-image: url('Fotos/Criança sorrindo com uniforme escolar.png');
+      background-image: url('Fotos/Criança sorrindo com uniforme escolar.webp');
     }
 
     .bg-contato {
-      background-image: url('Fotos/Contato - Banner.png');
+      background-image: url('Fotos/Contato - Banner.webp');
     }
 
     /* ==========================================================================
@@ -1383,7 +1431,7 @@
       padding-top: var(--space-4);
       text-align: center;
       font-size: 0.8125rem;
-      color: var(--color-muted-gray);
+      color: #BFB5AD;
     }
 
     /* Mobile: navegação compacta e conteúdo sem sobreposições. */

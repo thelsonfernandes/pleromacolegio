@@ -3,7 +3,7 @@ window.Components.header = `
   <header class="site-header" id="main-header">
     <div class="container header-container">
       <a href="/" class="brand-logo" onclick="navigateTo('home'); return false;">
-        <img src="brasao.png" alt="Brasão do Colégio Pleroma" class="logo-shield-img">
+        <img src="brasao-header.webp" width="156" height="104" decoding="async" alt="Brasão do Colégio Pleroma" class="logo-shield-img">
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation" onclick="toggleMobileNavigation(this)">

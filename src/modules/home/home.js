@@ -4,8 +4,9 @@ window.Modules.home = `
 
     <!-- Hero da HOME (Vídeo de Fundo Solene em Loop) -->
     <section class="hero-home">
-      <video class="hero-video-bg" autoplay loop muted playsinline>
-        <source src="background.mp4" type="video/mp4">
+      <video class="hero-video-bg" autoplay loop muted playsinline preload="auto" fetchpriority="high"
+        poster="hero-poster.webp" aria-hidden="true">
+        <source src="background-optimized.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
 
@@ -49,8 +50,8 @@ window.Modules.home = `
         </div>
 
         <div class="cultura-showcase">
-          <img src="Fotos/Home - Cultura e Formacao.png" alt="Dupla de alunos do Colégio Pleroma"
-            class="cultura-showcase-img">
+          <img src="Fotos/Home - Cultura e Formacao.webp" width="813" height="618" loading="lazy" decoding="async"
+            alt="Dupla de alunos do Colégio Pleroma" class="cultura-showcase-img">
 
           <div class="cultura-cards-grid">
             <div class="cultura-card">
@@ -96,8 +97,8 @@ window.Modules.home = `
 
           <div class="video-showcase">
             <div class="video-thumb-wrapper">
-              <img src="Fotos/Criança sorrindo com uniforme escolar.png" alt="Vídeo Depoimento"
-                class="video-thumb-img">
+              <img src="Fotos/Criança sorrindo com uniforme escolar.webp" width="1024" height="1024" loading="lazy"
+                decoding="async" alt="Vídeo Depoimento" class="video-thumb-img">
 
               <div class="video-thumb-overlay">
                 <button class="video-play-btn"

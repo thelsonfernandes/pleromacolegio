@@ -34,6 +34,19 @@ pages.forEach(page => {
   assert(/<title>[^<]+<\/title>/.test(html), `${page.file}: title ausente`);
   assert(/<meta name="description" content="[^"]+" \/>/.test(html), `${page.file}: description ausente`);
   assert((html.match(/<h1\b/g) || []).length === 1, `${page.file}: deve conter exatamente um H1`);
+  assert(!html.includes('<h4 class="footer-title">'), `${page.file}: títulos do rodapé não devem saltar níveis`);
+  assert(!html.includes('fonts.googleapis.com'), `${page.file}: dependência externa do Google Fonts encontrada`);
+  assert(html.includes("assets/fonts/cinzel-latin.woff2"), `${page.file}: fonte local prioritária ausente`);
+  assert(html.includes('src="assets/js/site.min.js"'), `${page.file}: bundle principal ausente`);
+  assert(!html.includes('src="src/'), `${page.file}: scripts-fonte não devem ser publicados diretamente`);
+  assert(
+    html.includes('src="assets/js/formation.min.js"') === Boolean(page.formation),
+    `${page.file}: bundle de formação incorreto`
+  );
+  const imageTags = html.match(/<img\b[^>]*>/gi) || [];
+  imageTags.forEach((tag, index) => {
+    assert(/\bwidth="\d+"/i.test(tag) && /\bheight="\d+"/i.test(tag), `${page.file}: imagem ${index + 1} sem dimensões explícitas`);
+  });
   if (page.schema) {
     const jsonLdMatch = html.match(/<script id="seo-structured-data" type="application\/ld\+json">([\s\S]*?)<\/script>/);
     assert(Boolean(jsonLdMatch), `${page.file}: JSON-LD estático ausente`);
@@ -59,6 +72,12 @@ pages.forEach(page => {
   if (!page.formation) {
     assert(html.includes('<base id="app-base" href="./" />'), `${page.file}: base local da página incorreta`);
   }
+  if (page.file === 'index.html') {
+    assert(
+      /<video\b[^>]*class="hero-video-bg"[^>]*\bpreload="auto"[^>]*\bfetchpriority="high"[^>]*\bposter="hero-poster\.webp"[^>]*>/i.test(html),
+      'index.html: vídeo LCP deve ter preload, prioridade alta e poster'
+    );
+  }
 });
 
 const notFoundPath = path.join(outputRoot, '404.html');
@@ -69,9 +88,13 @@ if (fs.existsSync(notFoundPath)) {
   assert(notFound.includes('Página não encontrada'), '404.html: conteúdo de erro ausente');
 }
 
-['src/core/navigation.js', 'src/core/seo.js', 'Fotos', 'public', 'robots.txt', 'sitemap.xml', '.htaccess'].forEach(relativePath => {
+['assets/js/site.min.js', 'assets/js/formation.min.js', 'Fotos', 'public', 'assets/fonts', 'background-optimized.mp4', 'hero-poster.webp', 'brasao.webp', 'brasao-header.webp', 'robots.txt', 'sitemap.xml', '.htaccess'].forEach(relativePath => {
   assert(fs.existsSync(path.join(outputRoot, relativePath)), `${relativePath}: asset de publicação ausente`);
 });
+
+const publishedPngFiles = fs.readdirSync(path.join(outputRoot, 'Fotos'))
+  .filter(file => path.extname(file).toLowerCase() === '.png');
+assert(publishedPngFiles.length === 0, 'Fotos: arquivos PNG originais não devem ser publicados');
 
 const sitemap = fs.readFileSync(path.join(outputRoot, 'sitemap.xml'), 'utf8');
 pages.forEach(page => assert(sitemap.includes(`<loc>${page.canonical}</loc>`), `${page.file}: URL ausente do sitemap`));

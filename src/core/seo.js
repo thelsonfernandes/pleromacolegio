@@ -6,63 +6,63 @@ const seoRoutes = {
     title: 'Pleroma - Colégio Cristão Clássico',
     description: 'Matrículas abertas no Pleroma, colégio cristão clássico em Juiz de Fora. Conheça nossa Educação Infantil e inscreva-se para uma visita.',
     socialDescription: 'Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita.',
-    image: '/Fotos/Home - Cultura e Formacao.png',
+    image: '/Fotos/Home - Cultura e Formacao.webp',
     structuredData: 'home'
   },
   '/home': {
     title: 'Pleroma - Colégio Cristão Clássico',
     description: 'Matrículas abertas no Pleroma, colégio cristão clássico em Juiz de Fora. Conheça nossa Educação Infantil e inscreva-se para uma visita.',
     socialDescription: 'Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita.',
-    image: '/Fotos/Home - Cultura e Formacao.png',
+    image: '/Fotos/Home - Cultura e Formacao.webp',
     structuredData: 'home'
   },
   '/formacao/educacao-infantil': {
     title: 'Educação Infantil Cristã em Juiz de Fora | Pleroma',
     description: 'Matrículas abertas para a Educação Infantil cristã clássica, de 2 a 5 anos, em Juiz de Fora. Conheça o Colégio Pleroma e inscreva-se para uma visita.',
     socialDescription: 'Matrículas abertas para a Educação Infantil do Pleroma, de 2 a 5 anos, em Juiz de Fora. Conheça a proposta e inscreva-se para uma visita.',
-    image: '/Fotos/Nossa Formacao - Banner.png',
+    image: '/Fotos/Nossa Formacao - Banner.webp',
     structuredData: 'educationInfantil'
   },
   '/formacao/proposta': {
     title: 'Proposta Pedagógica Cristã Clássica | Pleroma',
     description: 'Conheça a proposta pedagógica cristã clássica do Colégio Pleroma em Juiz de Fora: formação integral fundamentada em Cristo, na verdade, bondade e beleza.',
     socialDescription: 'Conheça a proposta pedagógica do Pleroma: Educação Cristã Clássica, formação de virtudes e parceria com as famílias em Juiz de Fora.',
-    image: '/Fotos/Nossa Formacao - Banner.png',
+    image: '/Fotos/Nossa Formacao - Banner.webp',
     structuredData: 'propostaPedagogica'
   },
   '/formacao/reforco-formativo': {
     title: 'Reforço Formativo para Crianças em Juiz de Fora | Pleroma',
     description: 'Reforço Formativo cristão para crianças de 2 a 5 anos em Juiz de Fora, com literatura, matemática, movimento, maravilhamento e virtudes.',
     socialDescription: 'Conheça o Reforço Formativo Pleroma para crianças de 2 a 5 anos: cinco oficinas em um ambiente cristão, acolhedor e intencional.',
-    image: '/Fotos/Leitura em Roda na Sala de Aula Clássica.png',
+    image: '/Fotos/Leitura em Roda na Sala de Aula Clássica.webp',
     structuredData: 'reforcoFormativo'
   },
   '/admissao': {
     title: 'Matrículas Abertas no Colégio Pleroma | Juiz de Fora',
     description: 'Matrículas abertas no Colégio Pleroma em Juiz de Fora. Conheça as quatro etapas do processo e inscreva-se para uma visita com nossa equipe.',
     socialDescription: 'Matrículas abertas no Colégio Pleroma. Conheça o processo de matrícula e agende uma visita em Juiz de Fora.',
-    image: '/Fotos/Admissao - Banner.png',
+    image: '/Fotos/Admissao - Banner.webp',
     structuredData: 'admissao'
   },
   '/sobre': {
     title: 'Sobre o Colégio Pleroma | Origem e Vocação',
     description: 'Conheça a origem, a vocação e o significado do nome Pleroma. Um colégio cristão clássico dedicado à formação integral da criança em Juiz de Fora.',
     socialDescription: 'Conheça a origem e a vocação do Colégio Pleroma, sua visão de Educação Cristã Clássica e o significado de plenitude em Cristo.',
-    image: '/Fotos/Sobre - Banner.png',
+    image: '/Fotos/Sobre - Banner.webp',
     structuredData: 'sobre'
   },
   '/contato': {
     title: 'Contato e Localização | Colégio Pleroma em Juiz de Fora',
     description: 'Entre em contato com o Colégio Pleroma em Juiz de Fora. Consulte endereço, WhatsApp, Instagram e mapa para agendar sua visita.',
     socialDescription: 'Fale com o Colégio Pleroma e conheça nossa sede no bairro Mariano Procópio, em Juiz de Fora.',
-    image: '/Fotos/Contato - Banner.png',
+    image: '/Fotos/Contato - Banner.webp',
     structuredData: 'contato'
   },
   '/formacao/educacao-bilingue': {
     title: 'Educação Bilíngue Infantil em Juiz de Fora | Pleroma',
     description: 'Conheça a Educação Bilíngue do Pleroma para crianças de 2 a 5 anos, com contato frequente e significativo com a língua inglesa na primeira infância.',
     socialDescription: 'Educação Bilíngue para crianças de 2 a 5 anos, integrando inglês, histórias, músicas, movimento e brincadeiras à formação do Pleroma.',
-    image: '/Fotos/Nossa Formacao - Banner.png',
+    image: '/Fotos/Nossa Formacao - Banner.webp',
     structuredData: 'educacaoBilingue'
   }
 };
@@ -71,7 +71,7 @@ const defaultSeo = {
   title: 'Pleroma - Colégio Cristão Clássico',
   description: 'Pleroma - Colégio Cristão Clássico em Juiz de Fora, Minas Gerais.',
   socialDescription: 'Conheça o Pleroma - Colégio Cristão Clássico em Juiz de Fora.',
-  image: '/brasao.png',
+  image: '/brasao.webp',
   structuredData: false
 };
 
@@ -115,8 +115,8 @@ function updateStructuredData(pageType, canonicalUrl) {
         alternateName: 'Colégio Pleroma',
         description: 'Colégio cristão clássico em Juiz de Fora com matrículas abertas para a Educação Infantil, fundamentada em Cristo, na verdade, na bondade e na beleza.',
         url: `${origin}/`,
-        logo: `${origin}/brasao.png`,
-        image: absoluteSiteUrl('/Fotos/Home - Cultura e Formacao.png'),
+        logo: `${origin}/brasao.webp`,
+        image: absoluteSiteUrl('/Fotos/Home - Cultura e Formacao.webp'),
         telephone: '+55 32 99111-4565',
         sameAs: ['https://www.instagram.com/pleroma.rf/'],
         contactPoint: {
