@@ -25,7 +25,7 @@ RewriteRule ^home/?$ / [R=301,L]
 # Serve /sobre a partir de sobre.html e preserva a URL pública sem extensão.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
 
 # URLs inexistentes retornam um 404 verdadeiro, sem carregar a Home.
