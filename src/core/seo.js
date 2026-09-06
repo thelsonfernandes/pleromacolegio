@@ -6,14 +6,14 @@ const seoRoutes = {
     title: 'Pleroma - Colégio Cristão Clássico',
     description: 'Matrículas abertas no Pleroma, colégio cristão clássico em Juiz de Fora. Conheça nossa Educação Infantil e inscreva-se para uma visita.',
     socialDescription: 'Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita.',
-    image: '/Fotos/Home - Cultura e Formacao.webp',
+    image: '/Fotos/Brasao.webp',
     structuredData: 'home'
   },
   '/home': {
     title: 'Pleroma - Colégio Cristão Clássico',
     description: 'Matrículas abertas no Pleroma, colégio cristão clássico em Juiz de Fora. Conheça nossa Educação Infantil e inscreva-se para uma visita.',
     socialDescription: 'Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita.',
-    image: '/Fotos/Home - Cultura e Formacao.webp',
+    image: '/Fotos/Brasao.webp',
     structuredData: 'home'
   },
   '/formacao/educacao-infantil': {
@@ -71,7 +71,7 @@ const defaultSeo = {
   title: 'Pleroma - Colégio Cristão Clássico',
   description: 'Pleroma - Colégio Cristão Clássico em Juiz de Fora, Minas Gerais.',
   socialDescription: 'Conheça o Pleroma - Colégio Cristão Clássico em Juiz de Fora.',
-  image: '/brasao.webp',
+  image: '/Fotos/Brasao.webp',
   structuredData: false
 };
 
@@ -116,7 +116,7 @@ function updateStructuredData(pageType, canonicalUrl) {
         description: 'Colégio cristão clássico em Juiz de Fora com matrículas abertas para a Educação Infantil, fundamentada em Cristo, na verdade, na bondade e na beleza.',
         url: `${origin}/`,
         logo: `${origin}/brasao.webp`,
-        image: absoluteSiteUrl('/Fotos/Home - Cultura e Formacao.webp'),
+        image: absoluteSiteUrl('/Fotos/Brasao.webp'),
         telephone: '+55 32 99111-4565',
         sameAs: ['https://www.instagram.com/pleroma.rf/'],
         contactPoint: {
