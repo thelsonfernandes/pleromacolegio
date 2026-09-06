@@ -18,8 +18,8 @@ const seoRoutes = {
   },
   '/formacao/educacao-infantil': {
     title: 'Educação Infantil Cristã em Juiz de Fora | Pleroma',
-    description: 'Matrículas abertas para a Educação Infantil cristã clássica, de 2 a 5 anos, em Juiz de Fora. Conheça o Colégio Pleroma e inscreva-se para uma visita.',
-    socialDescription: 'Matrículas abertas para a Educação Infantil do Pleroma, de 2 a 5 anos, em Juiz de Fora. Conheça a proposta e inscreva-se para uma visita.',
+    description: 'Matrículas abertas para 2027 na Educação Infantil cristã clássica, de 2 a 5 anos, em Juiz de Fora. Conheça o Colégio Pleroma.',
+    socialDescription: 'Matrículas abertas para 2027 na Educação Infantil do Pleroma, de 2 a 5 anos, em Juiz de Fora. Conheça a proposta.',
     image: '/Fotos/Nossa Formacao - Banner.webp',
     structuredData: 'educationInfantil'
   },
@@ -32,8 +32,8 @@ const seoRoutes = {
   },
   '/formacao/reforco-formativo': {
     title: 'Reforço Formativo para Crianças em Juiz de Fora | Pleroma',
-    description: 'Reforço Formativo cristão para crianças de 2 a 5 anos em Juiz de Fora, com literatura, matemática, movimento, maravilhamento e virtudes.',
-    socialDescription: 'Conheça o Reforço Formativo Pleroma para crianças de 2 a 5 anos: cinco oficinas em um ambiente cristão, acolhedor e intencional.',
+    description: 'Reforço Formativo cristão disponível somente em 2026 para crianças de 2 a 5 anos em Juiz de Fora, com cinco oficinas integradas.',
+    socialDescription: 'Conheça o Reforço Formativo Pleroma, oferecido somente em 2026 para crianças de 2 a 5 anos.',
     image: '/Fotos/Leitura em Roda na Sala de Aula Clássica.webp',
     structuredData: 'reforcoFormativo'
   },
@@ -157,7 +157,7 @@ function updateStructuredData(pageType, canonicalUrl) {
         '@id': `${canonicalUrl}#webpage`,
         url: canonicalUrl,
         name: 'Educação Infantil Cristã em Juiz de Fora | Pleroma',
-        description: 'Matrículas abertas para a Educação Infantil cristã clássica, de 2 a 5 anos, em Juiz de Fora, com turnos de manhã e tarde. Inscreva-se para uma visita.',
+        description: 'Matrículas abertas para 2027 na Educação Infantil cristã clássica, de 2 a 5 anos, em Juiz de Fora, com turnos de manhã e tarde.',
         inLanguage: 'pt-BR',
         isPartOf: { '@id': `${origin}/#website` },
         about: { '@id': `${origin}/#school` },
@@ -209,7 +209,7 @@ function updateStructuredData(pageType, canonicalUrl) {
         '@id': `${canonicalUrl}#webpage`,
         url: canonicalUrl,
         name: 'Reforço Formativo para Crianças em Juiz de Fora | Pleroma',
-        description: 'Reforço Formativo cristão para crianças de 2 a 5 anos em Juiz de Fora, com cinco oficinas integradas.',
+        description: 'Reforço Formativo cristão disponível somente em 2026 para crianças de 2 a 5 anos em Juiz de Fora, com cinco oficinas integradas.',
         inLanguage: 'pt-BR',
         isPartOf: { '@id': `${origin}/#website` },
         about: [

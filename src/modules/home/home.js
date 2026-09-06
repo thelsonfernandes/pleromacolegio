@@ -23,6 +23,7 @@ window.Modules.home = `
           <button class="btn btn-primary" onclick="trackCtaClick('home_schedule_visit', 'Agende sua Visita', 'home_hero'); openModal('home_hero')">Agende sua Visita</button>
         </div>
       </div>
+      <div class="hero-status-label hero-status-label--floating">Matrículas abertas</div>
     </section>
 
     <!-- MENSAGEM BEM-VINDO AO PLEROMA (Origem & Vocação Simplificada — Texto Revelado no Scroll) -->

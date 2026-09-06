@@ -26,14 +26,16 @@
   <meta id="seo-og-description" property="og:description"
     content="Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita." />
   <meta id="seo-og-url" property="og:url" content="https://colegiopleroma.com.br/" />
-  <meta id="seo-og-image" property="og:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.webp" />
+  <meta id="seo-og-image" property="og:image"
+    content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.webp" />
   <meta property="og:image:alt" content="Alunos do Pleroma - Colégio Cristão Clássico" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta id="seo-twitter-title" name="twitter:title" content="Pleroma - Colégio Cristão Clássico" />
   <meta id="seo-twitter-description" name="twitter:description"
     content="Matrículas abertas no Pleroma. Conheça nossa Educação Infantil cristã clássica em Juiz de Fora e inscreva-se para uma visita." />
-  <meta id="seo-twitter-image" name="twitter:image" content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.webp" />
+  <meta id="seo-twitter-image" name="twitter:image"
+    content="https://colegiopleroma.com.br/Fotos/Home%20-%20Cultura%20e%20Formacao.webp" />
   <link rel="icon" type="image/jpeg" href="public/escudo.jpg" />
 
   <!-- Google Analytics 4 -->
@@ -546,6 +548,60 @@
       flex-wrap: wrap;
     }
 
+    .hero-status-label {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: min(440px, 48vw);
+      padding: 18px 42px 16px;
+      border-radius: 28px 0 0 0;
+      background: #f6e5cf;
+      color: var(--color-burgundy-deep);
+      font-family: var(--font-sans);
+      font-size: clamp(0.9rem, 1.45vw, 1.35rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: 0.035em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .hero-status-label[hidden] {
+      display: none;
+    }
+
+    .hero-status-label--floating {
+      right: 24px;
+      bottom: 24px;
+      min-width: 0;
+      width: max-content;
+      max-width: calc(100% - 48px);
+      padding: 13px 22px;
+      border: 1px solid rgba(212, 163, 67, 0.72);
+      border-radius: 4px;
+      background: rgba(246, 229, 207, 0.94);
+      box-shadow: 0 10px 28px rgba(26, 17, 18, 0.24);
+      backdrop-filter: blur(6px);
+      font-family: var(--font-display);
+      font-size: clamp(0.78rem, 1.05vw, 0.95rem);
+      letter-spacing: 0.1em;
+    }
+
+    .hero-status-label--floating::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 7px;
+      height: 7px;
+      margin-right: 11px;
+      border-radius: 50%;
+      background: var(--color-amber-gold);
+      box-shadow: 0 0 0 3px rgba(212, 163, 67, 0.16);
+    }
+
     /* Hero de Páginas Internas */
     .hero-internal {
       position: relative;
@@ -1024,6 +1080,57 @@
       font-size: 1.1rem;
       color: var(--color-burgundy-deep);
       margin-bottom: var(--space-2);
+    }
+
+    .infantil-levels-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+      width: min(100%, 640px);
+      margin: var(--space-5) auto;
+    }
+
+    .infantil-level-card {
+      display: grid;
+      grid-template-rows: 340px 60px;
+      height: 400px;
+      overflow: hidden;
+      border: 1px solid var(--color-border-light);
+      border-radius: 4px;
+      background: var(--color-off-white);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .infantil-level-card img {
+      display: block;
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+
+    .infantil-level-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px var(--space-3);
+      text-align: center;
+    }
+
+    .infantil-level-card-content h3 {
+      margin-bottom: 2px;
+      font-size: 1.05rem;
+    }
+
+    .infantil-level-card-content p {
+      color: var(--color-amber-gold-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center !important;
+    }
+
+    .infantil-turnos {
+      margin-top: var(--space-5);
     }
 
     .classical-principles {
@@ -1505,7 +1612,7 @@
         padding: 8px 16px 18px;
       }
 
-      .nav-menu > li {
+      .nav-menu>li {
         border-bottom: 1px solid rgba(198, 172, 143, 0.18);
       }
 
@@ -1557,6 +1664,23 @@
         margin-bottom: var(--space-5);
       }
 
+      .hero-status-label {
+        min-width: 0;
+        max-width: calc(100% - 20px);
+        padding: 13px 20px 12px;
+        border-radius: 20px 0 0 0;
+        font-size: 0.78rem;
+      }
+
+      .hero-status-label--floating {
+        right: 12px;
+        bottom: 12px;
+        max-width: calc(100% - 24px);
+        padding: 11px 16px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+      }
+
       .hero-cta-group .btn,
       .modal-box .btn {
         width: 100%;
@@ -1589,6 +1713,13 @@
       .steps-grid,
       .diff-grid {
         grid-template-columns: 1fr;
+      }
+
+      .infantil-levels-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+        margin-top: var(--space-5);
+        max-width: 320px;
       }
 
       .triad-card {

@@ -139,10 +139,20 @@ function buildFormationPage(template, moduleName) {
     infantil: 'Educação <span class="accent-script">Infantil</span>',
     bilingue: 'Educação <span class="accent-script">Bilíngue</span>'
   };
-  const prefix = template.slice(0, firstModuleIndex).replace(
+  const statusLabels = {
+    reforco: 'Reforço Formativo · somente em 2026',
+    infantil: 'Matrículas abertas para 2027'
+  };
+  let prefix = template.slice(0, firstModuleIndex).replace(
     /<h1([^>]*id="formacao-title"[^>]*)>[\s\S]*?<\/h1>/i,
     `<h1$1>${titles[moduleName]}</h1>`
   );
+  if (statusLabels[moduleName]) {
+    prefix = prefix.replace(
+      '<div class="hero-status-label hero-status-label--floating" id="formacao-status-label" hidden></div>',
+      `<div class="hero-status-label hero-status-label--floating" id="formacao-status-label">${statusLabels[moduleName]}</div>`
+    );
+  }
   const selectedModule = extractDivById(template, `formacao-module-${moduleName}`)
     .replace(/\s+hidden(?=[\s>])/, '');
   return `${prefix}${selectedModule}\n  </main>`;
