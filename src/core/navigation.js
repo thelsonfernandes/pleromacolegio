@@ -93,7 +93,10 @@ window.addEventListener('scroll', () => {
 function updateHeaderCta() {
   const ctaBtn = document.getElementById('header-cta-btn');
   const homePage = document.getElementById('page-home');
-  if (!ctaBtn || !homePage) return;
+  if (!ctaBtn) return;
+  // Nas páginas estáticas internas, a Home não faz parte do DOM. O CTA deve
+  // permanecer disponível no desktop; no mobile, o CSS continua ocultando-o.
+  if (!homePage) return ctaBtn.classList.add('is-visible');
   if (!homePage.classList.contains('active')) return ctaBtn.classList.add('is-visible');
   const heroEl = document.querySelector('.hero-home');
   const header = document.getElementById('main-header');
