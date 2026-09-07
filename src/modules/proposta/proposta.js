@@ -127,7 +127,7 @@ window.Modules.proposta = `
               <div class="infantil-level-card-content"><h3>Infantil I</h3><p>2 e 3 anos</p></div>
             </article>
             <article class="infantil-level-card">
-              <img src="Fotos/Nossa Formacao - Banner.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Crianças representando a turma do Infantil II">
+              <img src="Fotos/Infantil ii.webp" width="1024" height="1024" loading="lazy" decoding="async" alt="Crianças da faixa etária do Infantil II em atividade escolar">
               <div class="infantil-level-card-content"><h3>Infantil II</h3><p>4 e 5 anos</p></div>
             </article>
           </div>
